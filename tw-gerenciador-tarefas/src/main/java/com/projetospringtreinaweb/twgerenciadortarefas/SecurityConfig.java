@@ -20,7 +20,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
+	private BCryptPasswordEncoder passwordEncoder;		
 	
 	//Para consultar na tabela de Usuario-Conexao
 	@Autowired
@@ -43,6 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.dataSource(dataSource)
 			.passwordEncoder(passwordEncoder);
 	}
+	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http
 			.authorizeRequests()
@@ -55,11 +56,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 					.loginPage("/login").failureUrl("/login?error=true").defaultSuccessUrl("/")
 					.usernameParameter("email").passwordParameter("senha")
 				.and().logout()
-					.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/").logoutSuccessUrl("/login");
+					.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
 					
 	}
 	
 	//Para ignorar o Bootstrap, ou seja, para liberar o uso de qualquer urls que comece com webjars
+	@Override
 	public void configure(WebSecurity web) throws Exception{
 		web.ignoring().antMatchers("/webjars/**");
 	}

@@ -1,10 +1,14 @@
 package com.projetospringtreinaweb.twgerenciadortarefas.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -32,6 +36,9 @@ public class Usuario {
 	@NotNull(message = "A senha é obrigatória.")
 	private String senha;
 	
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+	private List<Tarefa> tarefas;
+	
 	//Getters e Setters
 	public Long getId() {
 		return id;
@@ -50,6 +57,12 @@ public class Usuario {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public List<Tarefa> getTarefas() {
+		return tarefas;
+	}
+	public void setTarefas(List<Tarefa> tarefas) {
+		this.tarefas = tarefas;
 	}
 	
 	

@@ -44,7 +44,7 @@ public class ContaController {
 		if (result.hasErrors()) {
 			mv.setViewName("conta/registrar");
 			mv.addObject("usuario", usuario);
-		}else {
+		}else{
 			serviceUsuario.salvar(usuario);
 			mv.setViewName("redirect:/login");
 		}
