@@ -59,6 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 					
 	}
 	
+	//Para ignorar o Bootstrap, ou seja, para liberar o uso de qualquer urls que comece com webjars
 	public void configure(WebSecurity web) throws Exception{
 		web.ignoring().antMatchers("/webjars/**");
 	}

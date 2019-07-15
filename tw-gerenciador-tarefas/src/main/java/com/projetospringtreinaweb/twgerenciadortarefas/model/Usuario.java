@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 /**
  * @author WellintonCamboim-12-07-2019-Aula03-TreinoWeb
@@ -21,9 +24,12 @@ public class Usuario {
 	private Long id;
 	
 	@Column(name = "usr_email", nullable = false, length = 100)
+	@NotNull(message = "O e-mail é obrigatório.")
+	@Length(min=5, max=100, message = "O e-mail deve conter entre 5 e 100 caracteres.")
 	private String email;
 	
 	@Column(name = "usr_senha", nullable = false, length = 100)
+	@NotNull(message = "A senha é obrigatória.")
 	private String senha;
 	
 	//Getters e Setters
