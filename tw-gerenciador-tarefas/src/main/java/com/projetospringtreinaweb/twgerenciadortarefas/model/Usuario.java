@@ -24,7 +24,7 @@ public class Usuario {
 	private String email;
 	
 	@Column(name = "usr_senha", nullable = false, length = 100)
-	private String password;
+	private String senha;
 	
 	//Getters e Setters
 	public Long getId() {
@@ -39,11 +39,11 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPassword() {
-		return password;
+	public String getSenha() {
+		return senha;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	
 	
