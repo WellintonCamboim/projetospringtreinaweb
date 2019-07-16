@@ -37,7 +37,7 @@ public class ContaController {
 	@PostMapping("/registration")
 	public ModelAndView registrar(@Valid Usuario usuario, BindingResult result) {
 		ModelAndView mv = new ModelAndView();
-		Usuario usr = serviceUsuario.encontrarPorEmail(usuario.getEmail());
+		Usuario usr = serviceUsuario.procurarPorEmail(usuario.getEmail());
 		if (usr != null) {
 			result.rejectValue("email", "", "Usuário já cadastrado");
 		}

@@ -20,7 +20,7 @@ public class ServiceUsuario {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
-	public Usuario encontrarPorEmail(String email) {
+	public Usuario procurarPorEmail(String email) {
 		return repositoryUsuario.findByEmail(email);
 	}
 	public void salvar(Usuario usuario) {
