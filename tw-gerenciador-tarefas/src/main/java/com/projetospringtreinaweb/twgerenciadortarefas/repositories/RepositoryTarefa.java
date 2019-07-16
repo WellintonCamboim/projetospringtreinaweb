@@ -15,7 +15,7 @@ import com.projetospringtreinaweb.twgerenciadortarefas.model.Tarefa;
 
 public interface RepositoryTarefa extends JpaRepository<Tarefa, Long> {
 	
-	@Query("SELECT t FROM Tarefa t WHERE t.usuario.email - :emailUsuario")
+	@Query("SELECT t FROM Tarefa t WHERE t.usuario.email = :emailUsuario")
 	List<Tarefa> carregarTarefasPorUsuario(@Param("emailUsuario")String email);
 
 }

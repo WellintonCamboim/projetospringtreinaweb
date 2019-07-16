@@ -37,7 +37,7 @@ public class TarefasController {
 	public ModelAndView listar(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("tarefas/listar");
-		String emailUsuario =request.getUserPrincipal().getName();
+		String emailUsuario = request.getUserPrincipal().getName();
 		mv.addObject("tarefas", repositoryTarefa.carregarTarefasPorUsuario(emailUsuario));
 		return mv;
 	}
