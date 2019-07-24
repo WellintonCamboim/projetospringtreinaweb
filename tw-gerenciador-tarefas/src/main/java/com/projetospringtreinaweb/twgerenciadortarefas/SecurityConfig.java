@@ -1,5 +1,6 @@
 package com.projetospringtreinaweb.twgerenciadortarefas;
 
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	private BCryptPasswordEncoder passwordEncoder;		
 	
 	//Para consultar na tabela de Usuario-Conexao
+//	@Autowired
+//	private DataSource dataSource;
+	
 	@Autowired
 	private DataSource dataSource;
 	
+
 	//Usuario
 	@Value("${spring.queries.users-query}")
 	private String userQuery;
